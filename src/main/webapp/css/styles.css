@@ -1,0 +1,136 @@
+body {
+    background: url(../images/back.png);
+}
+
+.photo {
+    width: 25%;
+    height: 235px;
+    float: left;
+}
+
+.photo img {
+    width: 75%;
+    height: 200px;
+    margin: 0% 12.5%;
+    margin-top: 30px;
+    border-radius: 5%;
+    float: left;
+}
+
+.name {
+    width: 75%;
+    float: left;
+}
+
+.additionalinformation {
+    width: 100%;
+    float: left;
+    margin: 10px 0px 20px 0px;
+
+}
+
+.leftinfo {
+    width: 47.5%;
+    margin-right: 2.5%;
+    float: left;
+}
+
+.rightinfo {
+    width: 47.5%;
+    margin-left: 2.5%;
+    float: left;
+}
+
+.save {
+    width: 100%;
+    text-align: right;
+}
+
+.fr {
+    float: right;
+}
+
+.labelmasage {
+    margin: 15px 10px 0 0;
+    float: left;
+}
+
+.textareaemail {
+    margin: 20px 0px 20px 0px;
+    border-radius: 1%;
+}
+
+.sebdcontainer {
+    width: 100%;
+    text-align: right;
+}
+
+.search {
+    width: 32%;
+    float: left;
+}
+
+.mail {
+    width: 32%;
+}
+
+.searchmargin {
+    margin: 0 2%;
+}
+
+.labelsize {
+    width: 100%;
+}
+
+.searchbutton {
+    width: 100%;
+    float: left;
+    text-align: right;
+    margin-top: 10px;
+}
+
+.headerfixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: rgba(128, 128, 128, 0.5);
+}
+
+.namefixed {
+    float: left;
+}
+
+.namefixed h2 {
+    margin-top: 10px;
+}
+
+.buttonsfixed {
+    float: right;
+    margin-top: 10px;
+}
+
+.containermargin {
+    margin-top: 50px;
+}
+
+.margintopcontacth {
+    margin-top: 0px;
+}
+
+.margintopemailh {
+    margin-top: 15px;
+}
+
+.margintopsearch {
+    margin-top: 15px;
+}
+
+.namefixed a {
+    text-decoration: none;
+}
+
+.namefixed a:hover {
+    color: #248FFF;
+}
