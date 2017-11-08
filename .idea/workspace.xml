@@ -9,8 +9,16 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/webapp/jsp/listContact.jsp" line="108" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="15a4c3df-5155-4728-be84-70f32cf90ead" name="Default" comment="line separator">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/com/controller/commands/SearchContact.java" afterPath="$PROJECT_DIR$/src/main/com/controller/commands/SearchContact.java" />
+    <list default="true" id="15a4c3df-5155-4728-be84-70f32cf90ead" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/controller/commands/AddOrEditContact.class" afterPath="$PROJECT_DIR$/target/classes/controller/commands/AddOrEditContact.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/contacts_webapp.war" afterPath="$PROJECT_DIR$/target/contacts_webapp.war" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/contacts_webapp/WEB-INF/classes/controller/commands/AddOrEditContact.class" afterPath="$PROJECT_DIR$/target/contacts_webapp/WEB-INF/classes/controller/commands/AddOrEditContact.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/css/popupstyles.css" afterPath="$PROJECT_DIR$/src/main/webapp/css/popupstyles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/attachment.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/attachment.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/phone.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/phone.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/contacts_webapp/css/popupstyles.css" afterPath="$PROJECT_DIR$/target/contacts_webapp/css/popupstyles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/contacts_webapp/jsp/Contact.jsp" afterPath="$PROJECT_DIR$/target/contacts_webapp/jsp/Contact.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -44,31 +52,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SearchContact.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/com/controller/commands/SearchContact.java">
+      <file leaf-file-name="phone.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/phone.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
-              <folding />
+            <state relative-caret-position="169">
+              <caret line="41" column="29" lean-forward="false" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="29" />
+              <folding>
+                <marker date="1510128259917" expanded="true" signature="4472:4482" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="contacts_webapp.iml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/contacts_webapp.iml">
+      <file leaf-file-name="attachment.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/attachment.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="2" lean-forward="false" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
-              <folding />
+            <state relative-caret-position="169">
+              <caret line="146" column="51" lean-forward="false" selection-start-line="146" selection-start-column="51" selection-end-line="146" selection-end-column="51" />
+              <folding>
+                <marker date="1510129209041" expanded="true" signature="5787:5797" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContactDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/com/dao/ContactDAO.java">
+      <file leaf-file-name="popupstyles.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/css/popupstyles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1785">
-              <caret line="115" column="65" lean-forward="false" selection-start-line="115" selection-start-column="61" selection-end-line="115" selection-end-column="65" />
+            <state relative-caret-position="-24">
+              <caret line="8" column="21" lean-forward="false" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -113,6 +125,8 @@
       <find>deleteAtt</find>
       <find>out</find>
       <find>Hash</find>
+      <find>Date</find>
+      <find>DAte</find>
     </findStrings>
     <replaceStrings>
       <replace>FrontController</replace>
@@ -135,7 +149,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/com/controller/commands/MailForm.java" />
         <option value="$PROJECT_DIR$/src/main/com/controller/commands/GetFileCommand.java" />
         <option value="$PROJECT_DIR$/src/main/com/dao/TelephoneDAO.java" />
         <option value="$PROJECT_DIR$/src/main/com/dao/AddressDAO.java" />
@@ -158,14 +171,9 @@
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/Email.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/error.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/listContact.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/css/popupstyles.css" />
         <option value="$PROJECT_DIR$/src/main/com/controller/FrontController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/phone.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/attachment.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/listOfContacts.js" />
         <option value="$PROJECT_DIR$/src/main/com/controller/commands/ContactForm.java" />
-        <option value="$PROJECT_DIR$/src/main/com/controller/commands/AddOrEditContact.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/jsp/Contact.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/Search.jsp" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
@@ -186,6 +194,12 @@
         <option value="$PROJECT_DIR$/src/main/webapp/css/bootstrap-theme.min.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/bootstrap.min.js" />
         <option value="$PROJECT_DIR$/src/main/com/controller/commands/SearchContact.java" />
+        <option value="$PROJECT_DIR$/contacts_webapp.iml" />
+        <option value="$PROJECT_DIR$/src/main/com/controller/commands/AddOrEditContact.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/jsp/Contact.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/phone.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/css/popupstyles.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/attachment.js" />
       </list>
     </option>
   </component>
@@ -266,15 +280,7 @@
               <item name="contacts_webapp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="contacts_webapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="contacts_webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="contacts_webapp" type="b2602c69:ProjectViewProjectNode" />
@@ -282,6 +288,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -305,16 +312,16 @@
     <property name="Repository.Attach.Sources" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Alex\IdeaProjects\contacts_webapp\src\main\webapp" />
-      <recent name="C:\Users\Alex\IdeaProjects\contacts_webapp\src\main\resources\images" />
-      <recent name="C:\Users\Alex\IdeaProjects\contacts_webapp\src\main\webapp\jsp" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Alex\IdeaProjects\contacts_webapp\src\main\sql" />
       <recent name="C:\Users\Alex\IdeaProjects\contacts_webapp\src\main\webapp\css" />
       <recent name="C:\Users\Alex\IdeaProjects\contacts_webapp\src\main\webapp\images" />
       <recent name="C:\Users\Alex\IdeaProjects\contacts_webapp\src\main" />
+      <recent name="C:\Users\Alex\IdeaProjects\contacts_webapp\src\main\webapp\jsp" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Alex\IdeaProjects\contacts_webapp\src\main\webapp" />
+      <recent name="C:\Users\Alex\IdeaProjects\contacts_webapp\src\main\resources\images" />
       <recent name="C:\Users\Alex\IdeaProjects\contacts_webapp\src\main\webapp\jsp" />
     </key>
   </component>
@@ -608,7 +615,7 @@
       <workItem from="1510037531297" duration="703000" />
       <workItem from="1510053899492" duration="19314000" />
       <workItem from="1510119729482" duration="260000" />
-      <workItem from="1510123914842" duration="131000" />
+      <workItem from="1510123914842" duration="4639000" />
     </task>
     <task id="LOCAL-00001" summary="AddOrEdit">
       <created>1509706224156</created>
@@ -638,11 +645,18 @@
       <option name="project" value="LOCAL" />
       <updated>1510099544920</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="commit validation">
+      <created>1510126829386</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1510126829386</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="439892000" />
+    <option name="totallyTimeSpent" value="444400000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -655,6 +669,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.63418806" sideWeight="0.52723145" order="7" side_tool="true" content_ui="tabs" />
@@ -670,6 +685,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991454" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991454" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991454" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -677,7 +693,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44957265" sideWeight="0.47276855" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991454" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991454" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15960665" sideWeight="0.47910863" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20801815" sideWeight="0.47910863" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32980332" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20877458" sideWeight="0.52089137" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -686,7 +702,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991454" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991454" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -773,7 +788,8 @@
     <MESSAGE value="Global Commit" />
     <MESSAGE value="Add SQL file for creating database" />
     <MESSAGE value="Some fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some fixes" />
+    <MESSAGE value="commit validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit validation" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -857,13 +873,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/popupstyles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="40" column="22" lean-forward="false" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/68ca9ff3/3d2471bb-f11d-45da-b227-73595842ad5c/mydb.contact">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -875,13 +884,6 @@
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/phone.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1570">
-          <caret line="106" column="117" lean-forward="false" selection-start-line="106" selection-start-column="117" selection-end-line="106" selection-end-column="117" />
         </state>
       </provider>
     </entry>
@@ -906,13 +908,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/attachment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="146" column="39" lean-forward="false" selection-start-line="146" selection-start-column="39" selection-end-line="146" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/listOfContacts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="146">
@@ -924,13 +919,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="373">
           <caret line="64" column="71" lean-forward="false" selection-start-line="64" selection-start-column="71" selection-end-line="64" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/controller/commands/AddOrEditContact.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="173" column="67" lean-forward="false" selection-start-line="173" selection-start-column="67" selection-end-line="173" selection-end-column="67" />
         </state>
       </provider>
     </entry>
@@ -960,13 +948,6 @@
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/Contact.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="65" column="99" lean-forward="false" selection-start-line="65" selection-start-column="99" selection-end-line="65" selection-end-column="99" />
         </state>
       </provider>
     </entry>
@@ -1125,30 +1106,75 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="13" column="19" lean-forward="false" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/dao/ContactDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1785">
-          <caret line="115" column="65" lean-forward="false" selection-start-line="115" selection-start-column="61" selection-end-line="115" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/controller/commands/SearchContact.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/contacts_webapp.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="2" lean-forward="false" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
+        <state relative-caret-position="68">
+          <caret line="4" column="21" lean-forward="true" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/controller/commands/SearchContact.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/dao/ContactDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="115" column="65" lean-forward="false" selection-start-line="115" selection-start-column="61" selection-end-line="115" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/controller/commands/AddOrEditContact.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="347" column="16" lean-forward="false" selection-start-line="347" selection-start-column="16" selection-end-line="347" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/Contact.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="283" column="54" lean-forward="false" selection-start-line="283" selection-start-column="54" selection-end-line="283" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/popupstyles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-24">
+          <caret line="8" column="21" lean-forward="false" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/phone.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="41" column="29" lean-forward="false" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="29" />
+          <folding>
+            <marker date="1510128259917" expanded="true" signature="4472:4482" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/attachment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="146" column="51" lean-forward="false" selection-start-line="146" selection-start-column="51" selection-end-line="146" selection-end-column="51" />
+          <folding>
+            <marker date="1510129209041" expanded="true" signature="5787:5797" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
