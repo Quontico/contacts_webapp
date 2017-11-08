@@ -1,0 +1,70 @@
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+}
+
+.window {
+    width: 100%;
+    padding: 16px
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 20%; /* Could be more or less, depending on screen size */
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.textarea form-control {
+    width: 90%;
+    margin: 10px 0px 10px 0px;
+    border-radius: 1%;
+}
+
+.dialingprefix {
+    width: 80%;
+}
+
+.providercode {
+    width: 80%;
+}
+
+.phonenumber {
+    width: 80%;
+}
+
+.numbertype {
+    width: 80%;
+}
+
+.labelcommentary {
+    margin: 10px 10px 0 0;
+    float: left;
+}
+
+.save {
+    padding-right: 8px;
+}

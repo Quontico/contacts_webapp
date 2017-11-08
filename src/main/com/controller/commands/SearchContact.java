@@ -43,9 +43,13 @@ public class SearchContact implements ActionCommand {
             contact.setMiddlename(request.getParameter("MiddleName"));
             if (!request.getParameter("FirstDate").isEmpty()) {
                 contact.setFirstdate(LocalDate.parse(request.getParameter("FirstDate")));
+            } else {
+                contact.setFirstdate(null);
             }
             if (!request.getParameter("LastDate").isEmpty()) {
                 contact.setLastdate((LocalDate.parse(request.getParameter("LastDate"))));
+            } else {
+                contact.setLastdate(null);
             }
             contact.setGender(request.getParameter("Gender"));
             contact.setMarital(request.getParameter("Marital"));

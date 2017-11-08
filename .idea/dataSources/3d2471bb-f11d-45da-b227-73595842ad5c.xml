@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="mydb@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="mydb">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="students"/>
+    <schema id="7" parent="1" name="sys"/>
+    <schema id="8" parent="1" name="userdb"/>
+    <table id="9" parent="2" name="address"/>
+    <table id="10" parent="2" name="attachment"/>
+    <table id="11" parent="2" name="contact"/>
+    <table id="12" parent="2" name="genders">
+      <Comment>all values of gender</Comment>
+    </table>
+    <table id="13" parent="2" name="maritals">
+      <Comment>all values of marital status</Comment>
+    </table>
+    <table id="14" parent="2" name="telephone"/>
+    <column id="15" parent="9" name="Country">
+      <Position>1</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="16" parent="9" name="City">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="17" parent="9" name="Street">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="18" parent="9" name="House">
+      <Position>4</Position>
+      <DataType>varchar(25)|0</DataType>
+    </column>
+    <column id="19" parent="9" name="Apartment">
+      <Position>5</Position>
+      <DataType>varchar(25)|0</DataType>
+    </column>
+    <column id="20" parent="9" name="contacts_idcontact">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="9" name="Postcode">
+      <Position>7</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="22" parent="9" name="idAddress">
+      <Position>8</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <index id="23" parent="9" name="fk_address_contacts1_idx">
+      <ColNames>contacts_idcontact</ColNames>
+    </index>
+    <key id="24" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idAddress</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="25" parent="9" name="fk_address_contacts1">
+      <ColNames>contacts_idcontact</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>contact</RefTableName>
+      <RefColNames>idcontact</RefColNames>
+    </foreign-key>
+    <column id="26" parent="10" name="idattachment">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="27" parent="10" name="Name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="28" parent="10" name="DateUpload">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="10" name="attachment_comment">
+      <Position>4</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="30" parent="10" name="contacts_idcontact">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="10" name="FilePath">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="32" parent="10" name="fk_attachment_contacts1_idx">
+      <ColNames>contacts_idcontact</ColNames>
+    </index>
+    <key id="33" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idattachment</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="34" parent="10" name="fk_attachment_contacts1">
+      <ColNames>contacts_idcontact</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>contact</RefTableName>
+      <RefColNames>idcontact</RefColNames>
+    </foreign-key>
+    <column id="35" parent="11" name="idcontact">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="36" parent="11" name="Surname">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="11" name="FirstName">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="11" name="MiddleName">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="39" parent="11" name="BirthdayDate">
+      <Position>5</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="40" parent="11" name="Gender">
+      <Position>6</Position>
+      <DataType>enum(&apos;&apos;, &apos;Male&apos;, &apos;Female&apos;)|0</DataType>
+    </column>
+    <column id="41" parent="11" name="MaritalStatus">
+      <Position>7</Position>
+      <DataType>enum(&apos;&apos;, &apos;Single&apos;, &apos;Married&apos;)|0</DataType>
+    </column>
+    <column id="42" parent="11" name="Website">
+      <Position>8</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="43" parent="11" name="Email">
+      <Position>9</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="44" parent="11" name="Workplace">
+      <Position>10</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="45" parent="11" name="Citizenship">
+      <Position>11</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="46" parent="11" name="UrlAvatar">
+      <Position>12</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="47" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idcontact</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="48" parent="12" name="Gender">
+      <Position>1</Position>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <column id="49" parent="13" name="Marital">
+      <Position>1</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="50" parent="14" name="idtelephone">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="51" parent="14" name="DialingPrefix">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="52" parent="14" name="ProviderCode">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="53" parent="14" name="PhoneNumber">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="54" parent="14" name="commentary">
+      <Position>5</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="55" parent="14" name="contacts_idcontact">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="14" name="NumberType">
+      <Position>7</Position>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <index id="57" parent="14" name="fk_telephones_contacts_idx">
+      <ColNames>contacts_idcontact</ColNames>
+    </index>
+    <key id="58" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idtelephone</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="59" parent="14" name="fk_telephones_contacts">
+      <ColNames>contacts_idcontact</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>contact</RefTableName>
+      <RefColNames>idcontact</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
