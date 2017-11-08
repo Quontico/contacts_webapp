@@ -27,6 +27,7 @@
           action="/FrontController?action=ADD_OR_EDIT_CONTACT"
           method="post" role="form">
         <input type="hidden" id="idcontact" name="idcontact" value="${contact.idcontact}"/>
+        <input type="hidden" id="photo" value="${contact.urlAvatar}">
         <header>
             <h2 class="margintopcontacth">Contact</h2>
         </header>
@@ -242,7 +243,7 @@
             <a href="/FrontController?action=LIST_OF_CONTACTS">
                 <button type="button" class="btn btn-danger">Cancel</button>
             </a>
-            <button type="submit" class="btn btn-primary  btn-md">Save</button>
+            <button type="submit" class="btn btn-primary  btn-md" <%--onclick="checkPhoto()"--%>>Save</button>
         </div>
     </form>
 </div>
@@ -335,5 +336,6 @@
 <script src="/js/phone.js?new"></script>
 
 <script src="/js/attachment.js?new"></script>
+
 </body>
 </html>

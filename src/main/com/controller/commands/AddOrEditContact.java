@@ -81,13 +81,13 @@ public class AddOrEditContact implements ActionCommand {
             LOGGER.error("IOException occured: " + e);
         }
         DiskFileItemFactory factory = new DiskFileItemFactory();
-        factory.setSizeThreshold(1024 * 1024);
+        factory.setSizeThreshold(1024 * 1024 * 1024);
         File tempDir = (File) request.getAttribute("javax.servlet.context.tempdir");
         factory.setRepository(tempDir);
 
         ServletFileUpload upload = new ServletFileUpload(factory);
 
-        upload.setSizeMax(10 * 1024 * 1024);
+        upload.setSizeMax(1024 * 1024 * 1024);
         upload.setHeaderEncoding("UTF-8");
 
 
@@ -108,14 +108,18 @@ public class AddOrEditContact implements ActionCommand {
 
                         if (fieldName.equals("avatar")) {
                             if (size > 0) {
-                                String fileName = contact.getIdcontact() + name.substring(name.lastIndexOf('.'));
-                                String path = bundle.getString("PHOTO_FOLDER") + fileName;
-                                if (control.isExists(path)) {
-                                    control.deleteFile(path);
+                                if (name.substring(name.lastIndexOf('.')).equals(".png") || name.substring(name.lastIndexOf('.')).equals(".jpeg") || name.substring(name.lastIndexOf('.')).equals(".jpg")) {
+                                    String fileName = contact.getIdcontact() + name.substring(name.lastIndexOf('.'));
+                                    String path = bundle.getString("PHOTO_FOLDER") + fileName;
+                                    if (control.isExists(path)) {
+                                        control.deleteFile(path);
+                                    }
+                                    contact.setUrlAvatar(path);
+                                    contactDAO.updatePhoto(contact);
+                                    control.uploadFile(path, item.getInputStream());
+                                } else {
+                                    LOGGER.error("Wrong avatar validation!");
                                 }
-                                contact.setUrlAvatar(path);
-                                contactDAO.updatePhoto(contact);
-                                control.uploadFile(path, item.getInputStream());
                             }
 
                         } else {

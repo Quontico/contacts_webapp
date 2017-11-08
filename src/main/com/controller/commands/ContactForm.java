@@ -61,16 +61,16 @@ public class ContactForm implements ActionCommand {
 
                 phones = phoneDAO.getAllPhones(Integer.parseInt(idcontact));
                 request.setAttribute("telephones", phones);
-
             }
+            return PageURL.ADD_OR_EDIT;
         } catch (SQLException ex) {
-            LOGGER.error("SQLException occured" + ex);
+            LOGGER.error("SQLException occured in ContactForm" + ex);
             try {
                 connection.rollback();
             } catch (SQLException e) {
-                LOGGER.error("Connection is not rollbacked: " + e);
+                LOGGER.error("Connection is not rollbacked in ContactForm: " + e);
             }
         }
-        return PageURL.ADD_OR_EDIT;
+        return PageURL.ERROR_PAGE;
     }
 }

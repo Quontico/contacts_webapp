@@ -18,23 +18,7 @@ public class FrontController extends HttpServlet {
     private static final Logger LOGGER = Logger.getRootLogger();
     private static final long serialVersionUID = 1L;
 
-    /*@Override
-    public void init() {
-        *//*try {
-            super.init();
-        } catch (ServletException e) {
-            LOGGER.error("Error initialization: "+e);
-        }*//*
-        try {
-            QuartzSchedule.quartzExecute();
-            LOGGER.info("Application is started .");
-        } catch (Exception e) {
-            LOGGER.error("Some exception was occured: "+e);
-        }
-    }*/
-
-    private void processRequest(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+    private void processRequest(HttpServletRequest req, HttpServletResponse resp) {
 
         ActionFactory client = new ActionFactory();
         ActionCommand command = client.defineCommand(req);
@@ -42,21 +26,25 @@ public class FrontController extends HttpServlet {
         try {
             page = command.execute(req, resp);
         } catch (Exception e) {
-            LOGGER.error("Error in the request processing: ", e);
+            LOGGER.error("Error in the request processing, FrontController: ", e);
         }
-        if (page != null) {
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
-            dispatcher.forward(req, resp);
-        } else {
-            resp.sendRedirect(PageURL.ERROR_PAGE);
+        try {
+            if (page != null) {
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
+                dispatcher.forward(req, resp);
+            } else {
+                resp.sendRedirect(PageURL.ERROR_PAGE);
+            }
+        } catch (Exception e) {
+            LOGGER.error("There is some exception in FrontController: " + e);
         }
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         processRequest(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         processRequest(request, response);
     }
 }
