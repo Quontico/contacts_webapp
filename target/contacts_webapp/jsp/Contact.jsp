@@ -27,8 +27,7 @@
           action="/FrontController?action=ADD_OR_EDIT_CONTACT"
           method="post" role="form">
         <input type="hidden" id="idcontact" name="idcontact" value="${contact.idcontact}"/>
-        <input type="hidden" id="Page" value="${Page}">
-        <input type="hidden" id="Number" value="${Number}">
+        <input type="hidden" id="photo" value="${contact.urlAvatar}">
         <header>
             <h2 class="margintopcontacth">Contact</h2>
         </header>
@@ -103,8 +102,7 @@
 
                     <label for="Website" class="control-label">Website:</label>
                     <input type="text" name="Website" id="Website" class="form-control"
-                           value="${contact.website}" pattern="^[a-z_-./\]+$"
-                           title="Website should contain lowercase latin symbols, numbers and spec symbols"/>
+                           value="${contact.website}"/>
                 </div>
                 <div class="rightinfo">
                     <label for="Country" class="control-label">Country:</label>
@@ -245,7 +243,7 @@
             <a href="/FrontController?action=LIST_OF_CONTACTS">
                 <button type="button" class="btn btn-danger">Cancel</button>
             </a>
-            <button type="submit" class="btn btn-primary  btn-md">Save</button>
+            <button type="submit" class="btn btn-primary  btn-md" <%--onclick="checkPhoto()"--%>>Save</button>
         </div>
     </form>
 </div>
@@ -262,21 +260,21 @@
                 <input type="text" id="DialingPrefix" class="form-control dialingprefix" name="DialingPrefix"
                        value="${telephone.dialingPrefix}" pattern="[0-9]{1,4}"
                        title="This field should contain only numbers.">
-                <span id="helpDialingPrefix" class="help-block" style="color: red; display: none">This field should contain only numbers.</span>
+                <span id="helpDialingPrefix" class="help-block" style="color: red; display: none">This field should contain 1-4 numbers.</span>
             </div>
             <div>
                 <label><b>Provider Code</b></label>
                 <input type="text" id="ProviderCode" class="form-control providercode" name="ProviderCode"
                        value="${telephone.providerCode}" pattern="[0-9]{1,4}"
                        title="This field should contain only numbers.">
-                <span id="helpProviderCode" class="help-block" style="color: red; display: none">This field should contain only numbers.</span>
+                <span id="helpProviderCode" class="help-block" style="color: red; display: none">This field should contain 1-4 numbers.</span>
             </div>
             <div>
                 <label><b>Phone Number</b></label>
                 <input type="text" id="PhoneNumber" class="form-control numbertype" name="PhoneNumber"
                        value="${telephone.phoneNumber}" pattern="[0-9]{7,}"
                        title="This field should contain only numbers.">
-                <span id="helpPhoneNumber" class="help-block" style="color: red; display: none">This field should contain only numbers.</span>
+                <span id="helpPhoneNumber" class="help-block" style="color: red; display: none">This field should contain at least 7 numbers.</span>
             </div>
             <div>
                 <label><b>Number Type</b></label>
@@ -338,5 +336,6 @@
 <script src="/js/phone.js?new"></script>
 
 <script src="/js/attachment.js?new"></script>
+
 </body>
 </html>

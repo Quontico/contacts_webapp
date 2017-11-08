@@ -60,7 +60,6 @@
         </div>
         <br>
         <br>
-
         <table id="tableContact" class="table table-hover">
             <thead>
             <tr>
@@ -81,7 +80,7 @@
                     <td><input type="checkbox" name="chkbox" value="${contact.key.idcontact}"
                                onchange="deleteContacts()"></td>
                     <td>
-                        <a href="FrontController?action=CONTACT_FORM&idcontact=<c:out value="${contact.key.idcontact}"/>">
+                        <a href="/FrontController?action=CONTACT_FORM&idcontact=${contact.key.idcontact}">
                             <span>${contact.key.firstname} ${contact.key.surname} ${contact.key.middlename}</span>
                         </a>
                     </td>
@@ -96,7 +95,6 @@
             </c:forEach>
             </tbody>
         </table>
-
         <br>
         <div>
             <div class="pagination">
