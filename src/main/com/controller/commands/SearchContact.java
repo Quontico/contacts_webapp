@@ -12,14 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.Connection;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class SearchContact implements ActionCommand {
     Connection connection = DbUtil.getConnection();
-    private static Map<String, Object> entity = new HashMap();
+    private static Map<String, Object> entity = new LinkedHashMap();
 
     private Contact contact = new Contact();
     private Address address = new Address();

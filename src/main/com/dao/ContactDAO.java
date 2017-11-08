@@ -112,10 +112,11 @@ public class ContactDAO {
 
     }
 
-    public List<Contact> getAllContacts(int firstrow, int lastrow) {
-        List<Contact> contacts = new ArrayList<>();
+    public Map<Contact, Address> getAllContacts(int firstrow, int lastrow) {
+        LinkedHashMap<Contact, Address> contacts = new LinkedHashMap<>();
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT SQL_CALC_FOUND_ROWS * FROM contact LIMIT ?,?");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT SQL_CALC_FOUND_ROWS * FROM contact JOIN address " +
+                    "ON contact.idcontact = address.contacts_idcontact LIMIT ?,?");
             preparedStatement.setInt(1, firstrow);
             preparedStatement.setInt(2, lastrow);
             ResultSet rs = preparedStatement.executeQuery();
@@ -124,10 +125,21 @@ public class ContactDAO {
                 contact.setIdcontact(rs.getInt("idcontact"));
                 contact.setFirstname(rs.getString("FirstName"));
                 contact.setSurname(rs.getString("Surname"));
-                contact.setGender(rs.getString("Gender"));
+                contact.setMiddlename(rs.getString("MiddleName"));
+                if (rs.getString("BirthdayDate") != null) {
+                    contact.setBirthdate(LocalDate.parse(rs.getString("BirthdayDate")));
+                } else {
+                    contact.setBirthdate(null);
+                }
                 contact.setWorkplace(rs.getString("Workplace"));
-                contact.setEmail(rs.getString("Email"));
-                contacts.add(contact);
+
+                Address address = new Address();
+                address.setCountry(rs.getString("Country"));
+                address.setCity(rs.getString("City"));
+                address.setStreet(rs.getString("Street"));
+                address.setHouse(rs.getString("House"));
+                address.setApartment(rs.getString("Apartment"));
+                contacts.put(contact, address);
             }
         } catch (SQLException e) {
             LOGGER.error("Some SQLException in ContactDAO: " + e);
@@ -168,13 +180,13 @@ public class ContactDAO {
         return contact;
     }
 
-    public List<Contact> findContacts(Contact contact, Address address, int firstrow, int lastrow) {
-        List<Contact> contacts = new ArrayList<>();
+    public Map<Contact, Address> findContacts(Contact contact, Address address, int firstrow, int lastrow) {
+        LinkedHashMap<Contact, Address> contacts = new LinkedHashMap<>();
         try {
             PreparedStatement preparedStatement = connection.
                     prepareStatement("SELECT * FROM contact JOIN address ON contact.idcontact = address.contacts_idcontact" +
                             " WHERE (FirstName LIKE ? OR ? = '') AND (Surname LIKE ? OR ? = '' ) " +
-                            "AND (MiddleName LIKE ? OR ? = '' ) AND (Gender = ? OR ? = '' ) AND (MaritalStatus = ? OR ? = '' ) " +
+                            "AND (MiddleName LIKE ? OR ? = '' ) AND (Gender LIKE ? OR ? = '' ) AND (MaritalStatus LIKE ? OR ? = '' ) " +
                             "AND (Citizenship LIKE ? OR ? = '' ) AND (BirthdayDate >= ? OR ? IS NULL ) AND (BirthdayDate <= ? OR ? IS NULL ) " +
                             "AND (Country LIKE ? OR ? = '' ) AND (City LIKE ? OR ? = '' ) AND (Street LIKE ? OR ? = '' ) " +
                             "AND (House LIKE ? OR ? = '' ) AND (Apartment LIKE ? OR ? = '' ) AND (Postcode LIKE ? OR ? = '' ) " +
@@ -222,14 +234,25 @@ public class ContactDAO {
             preparedStatement.setInt(30, lastrow);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                contact = new Contact();
-                contact.setIdcontact(rs.getInt("idcontact"));
-                contact.setFirstname(rs.getString("FirstName"));
-                contact.setSurname(rs.getString("Surname"));
-                contact.setGender(rs.getString("Gender"));
-                contact.setWorkplace(rs.getString("Workplace"));
-                contact.setEmail(rs.getString("Email"));
-                contacts.add(contact);
+                Contact thisContact = new Contact();
+                thisContact.setIdcontact(rs.getInt("idcontact"));
+                thisContact.setFirstname(rs.getString("FirstName"));
+                thisContact.setSurname(rs.getString("Surname"));
+                thisContact.setMiddlename(rs.getString("MiddleName"));
+                if (rs.getString("BirthdayDate") != null) {
+                    thisContact.setBirthdate(LocalDate.parse(rs.getString("BirthdayDate")));
+                } else {
+                    thisContact.setBirthdate(null);
+                }
+                thisContact.setWorkplace(rs.getString("Workplace"));
+
+                Address thisAddress = new Address();
+                thisAddress.setCountry(rs.getString("Country"));
+                thisAddress.setCity(rs.getString("City"));
+                thisAddress.setStreet(rs.getString("Street"));
+                thisAddress.setHouse(rs.getString("House"));
+                thisAddress.setApartment(rs.getString("Apartment"));
+                contacts.put(thisContact, thisAddress);
             }
         } catch (SQLException e) {
             LOGGER.error("Some SQLException in ContactDAO: " + e);
@@ -244,7 +267,7 @@ public class ContactDAO {
             PreparedStatement preparedStatement = connection.
                     prepareStatement("SELECT COUNT(*) FROM contact JOIN address ON contact.idcontact = address.contacts_idcontact" +
                             " WHERE (FirstName LIKE ? OR ? = '') AND (Surname LIKE ? OR ? = '' ) " +
-                            "AND (MiddleName LIKE ? OR ? = '' ) AND (Gender = ? OR ? = '' ) AND (MaritalStatus = ? OR ? = '' ) " +
+                            "AND (MiddleName LIKE ? OR ? = '' ) AND (Gender LIKE ? OR ? = '' ) AND (MaritalStatus LIKE ? OR ? = '' ) " +
                             "AND (Citizenship LIKE ? OR ? = '' ) AND (BirthdayDate >= ? OR ? IS NULL ) AND (BirthdayDate <= ? OR ? IS NULL ) " +
                             "AND (Country LIKE ? OR ? = '' ) AND (City LIKE ? OR ? = '' ) AND (Street LIKE ? OR ? = '' ) " +
                             "AND (House LIKE ? OR ? = '' ) AND (Apartment LIKE ? OR ? = '' ) AND (Postcode LIKE ? OR ? = '' ) ");
@@ -287,7 +310,6 @@ public class ContactDAO {
             preparedStatement.setString(26, address.getApartment());
             preparedStatement.setString(27, "%" + address.getPostcode() + "%");
             preparedStatement.setString(28, address.getPostcode());
-
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 number = rs.getInt(1);

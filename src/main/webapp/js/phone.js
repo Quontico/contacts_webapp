@@ -28,7 +28,7 @@ function editPhone(btn) {
 
 function savePhone() {
     var table = document.getElementById("phoneTable");
-
+    var validPhone = true;
     var action = document.getElementById('popupAction').value;
     //----------popup Inputs----------------------
     var dialingPrefix = document.getElementById("DialingPrefix").value;
@@ -37,6 +37,35 @@ function savePhone() {
     var numberType = document.getElementById("NumberType").value;
     var commentary = document.getElementById("phoneCommentary").value;
     var phoneID = document.getElementById("phoneId").value;
+
+
+    //----------------validation------------------
+    document.getElementById("DialingPrefix").style.borderColor = '';
+    document.getElementById("ProviderCode").style.borderColor = '';
+    document.getElementById("PhoneNumber").style.borderColor = '';
+
+    document.getElementById("helpDialingPrefix").style.display = 'none';
+    document.getElementById("helpProviderCode").style.display = 'none';
+    document.getElementById("helpPhoneNumber").style.display = 'none';
+
+    if ((/\D/.test(dialingPrefix))) {
+        validPhone = false;
+        document.getElementById("DialingPrefix").style.borderColor = 'red';
+        document.getElementById("helpDialingPrefix").style.display = 'block';
+    }
+    if ((/\D/.test(providerCode))) {
+        validPhone = false;
+        document.getElementById("ProviderCode").style.borderColor = 'red';
+        document.getElementById("helpProviderCode").style.display = 'block';
+    }
+    if ((/\D/.test(phoneNumber))) {
+        validPhone = false;
+        document.getElementById("PhoneNumber").style.borderColor = 'red';
+        document.getElementById("helpPhoneNumber").style.display = 'block';
+    }
+    if (!validPhone) {
+        return false;
+    }
 
     //--------------row Inputs--------------------
     var row;
@@ -70,12 +99,12 @@ function savePhone() {
         inputPA.value = 'add';
 
         td1 = document.createElement('td');
-        td1.innerHTML = '<input type="checkbox" name="phnbox">';
+        td1.innerHTML = '<input type="checkbox" name="phnbox" value="${telephone.id}" onchange="checkDeletePhones()">';
         td2 = document.createElement('td');
         td3 = document.createElement('td');
         td4 = document.createElement('td');
         td5 = document.createElement('td');
-        td5.innerHTML = '<button type="button" onclick="editPhone(this)" style="width:auto" class="btn btn-info"><span class="glyphicon glyphicon-edit"></span></button>';
+        td5.innerHTML = '<button type="button" onclick="editPhone(this)" style="width:auto" class="btn btn-info">Edit</button>';
 
         row.appendChild(inputDP);
         row.appendChild(inputPC);
@@ -125,65 +154,6 @@ function savePhone() {
     td3.innerHTML = numberType;
     td4.innerHTML = commentary;
 
-    /*
-    if (idphone === null) {
-        row = document.createElement('tr');
-        table.appendChild(row);
-        // row = table.insertRow(rowCount);
-    } else {
-        var rows = table.getElementsByTagName('tr');
-        for (var i = 0; i<rows.length; i++) {
-            if(rows[i].id == idphone.value) {
-                row = rows[i];
-                break;
-            }
-        }
-        var pos = row.rowIndex;
-        table.deleteRow(pos);
-        row = table.insertRow(pos);
-        row.id = idphone.value;
-    }
-
-    var t1 = document.createElement("input");
-        t1.type = 'hidden';
-        t1.id = 'Dialing_Prefix';
-        t1.value = document.getElementById("DialingPrefix").value;
-        row.appendChild(t1);
-    var t2 = document.createElement("input");
-        t2.id = 'Provider_Code';
-        t2.type = 'hidden';
-        t2.value = document.getElementById("ProviderCode").value;
-        row.appendChild(t2);
-    var t3 = document.createElement("input");
-        t3.id = 'Phone_Number';
-        t3.type = 'hidden';
-        t3.value = document.getElementById("PhoneNumber").value;
-        row.appendChild(t3);
-    var t4 = document.createElement("input");
-        t4.id = 'Number_Type';
-        t4.type = 'hidden';
-        t4.value = document.getElementById("NumberType").value;
-        row.appendChild(t4);
-    var t5 = document.createElement("input");
-        t5.id = 'phone_Commentary';
-        t5.type = 'hidden';
-        t5.value = document.getElementById("phoneCommentary").value;
-        row.appendChild(t5);
-    var cell1 = row.insertCell(0);
-        var t6 = document.createElement("input");
-        t6.type = 'checkbox';
-        t6.id = 'phnbox';
-        t6.value = document.getElementById("phoneId").value;
-        cell1.appendChild(t6);
-    var cell2 = row.insertCell(1);
-        cell2.innerHTML = "+"+document.getElementById("DialingPrefix").value+"-"+document.getElementById("ProviderCode").value+"-"+document.getElementById("PhoneNumber").value;
-    var cell3 = row.insertCell(2);
-        cell3.innerHTML = document.getElementById("NumberType").value;
-    var cell4 = row.insertCell(3);
-        cell4.innerHTML = document.getElementById("phoneCommentary").value;
-    var cell5 = row.insertCell(4);
-        cell5.innerHTML = '<button type="button" onclick="editPhone(this)" style="width:auto" class="btn btn-info"><span class="glyphicon glyphicon-edit"></span></button>';
-*/
     document.getElementById("DialingPrefix").value = '';
     document.getElementById("ProviderCode").value = '';
     document.getElementById("PhoneNumber").value = '';
@@ -192,6 +162,22 @@ function savePhone() {
     document.getElementById("phoneId").value = '';
 
     document.getElementById('idFormTel').style.display = 'none';
+}
+
+function checkDeletePhones() {
+    var table = document.getElementById('phoneTable');
+    var inputs = table.getElementsByTagName('input');
+    for (var inputi = inputs.length; inputi-- > 0;) {
+        var input = inputs[inputi];
+
+        if (input.type === 'checkbox' && input.checked) {
+            document.getElementById("deletePhoneButton").disabled = false;
+            break;
+        }
+        else {
+            document.getElementById("deletePhoneButton").disabled = true;
+        }
+    }
 }
 
 function deletePhone() {
@@ -216,9 +202,17 @@ function deletePhone() {
             }
         }
     }
+    document.getElementById("deletePhoneButton").disabled = true;
 }
 
 function closePhoneForm() {
+    document.getElementById("DialingPrefix").style.borderColor = '';
+    document.getElementById("ProviderCode").style.borderColor = '';
+    document.getElementById("PhoneNumber").style.borderColor = '';
+
+    document.getElementById("helpDialingPrefix").style.display = 'none';
+    document.getElementById("helpProviderCode").style.display = 'none';
+    document.getElementById("helpPhoneNumber").style.display = 'none';
 
     document.getElementById("DialingPrefix").value = '';
     document.getElementById("ProviderCode").value = '';

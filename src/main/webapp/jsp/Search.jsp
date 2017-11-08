@@ -10,13 +10,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
-          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
-            integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
-            crossorigin="anonymous"></script>
-    <title>Search</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+
     <link rel="stylesheet" href="/css/styles.css">
+
+    <title>Search</title>
 </head>
 <body>
 <div class="container">
@@ -56,16 +58,16 @@
 
                 <label for="Gender" class="control-label labelsize">Gender:</label>
                 <select name="Gender" id="Gender" class="form-control form-control">
-                    <option selected>${contact.gender}</option>
-                    <option>Male</option>
-                    <option>Female</option>
+                    <c:forEach var="gender" items="${genders}">
+                        <option>${gender}</option>
+                    </c:forEach>
                 </select>
 
                 <label for="Marital" class="control-label labelsize">Marital status:</label>
                 <select name="Marital" id="Marital" class="form-control form-control">
-                    <option selected>${contact.marital}</option>
-                    <option>Single</option>
-                    <option>Married</option>
+                    <c:forEach var="marital" items="${maritals}">
+                        <option>${marital}</option>
+                    </c:forEach>
                 </select>
 
                 <label for="Citizenship" class="control-label labelsize">Citizenship:</label>
@@ -108,5 +110,8 @@
         </div>
     </form>
 </div>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
 </body>
 </html>

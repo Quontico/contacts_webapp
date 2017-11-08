@@ -117,7 +117,6 @@ public class AddOrEditContact implements ActionCommand {
                             }
 
                         } else {
-                            attachment.setAttachmentName(name);
                             String path = bundle.getString("ATTACHMENT_FOLDER") + contact.getIdcontact() + "/"
                                     + name;
                             for (int i = 1; control.isExists(path); i++) {
@@ -129,12 +128,14 @@ public class AddOrEditContact implements ActionCommand {
                                 case "none":
                                     break;
                                 case "edit":
-                                    control.deleteFile(attachment.getAttachmentPath());
-                                    attachment.setAttachmentPath(path);
-                                    control.uploadFile(path, item.getInputStream());
+                                    if (item.getSize() > 0) {
+                                        control.deleteFile(attachment.getAttachmentPath());
+                                        attachment.setAttachmentPath(path);
+                                        attachment.setAttachmentName(name);
+                                        control.uploadFile(path, item.getInputStream());
+                                    }
 
                                     attachment.setDateUpload(LocalDate.now());
-
                                     attachmentDAO.updateAttachment(attachment);
                                     break;
                                 case "add":
@@ -169,6 +170,8 @@ public class AddOrEditContact implements ActionCommand {
             }
         }
 
+        request.setAttribute("Page", request.getParameter("Page"));
+        request.setAttribute("Number", request.getParameter("Number"));
         return PageURL.LIST_CONTACT_COMMAND;
     }
 
@@ -355,6 +358,9 @@ public class AddOrEditContact implements ActionCommand {
                 break;
             case "PathFile":
                 attachment.setAttachmentPath(value);
+                break;
+            case "atchName":
+                attachment.setAttachmentName(value);
                 break;
             case "atchId":
                 try {

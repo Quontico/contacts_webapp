@@ -9,13 +9,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
-          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
-            integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
-            crossorigin="anonymous"></script>
-    <script src="/js/email.js"></script>
-    <link href="/css/styles.css" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+
+    <script src="/js/email.js?new"></script>
+
+    <link href="/css/styles.css?new" rel="stylesheet">
+
     <title>Sending emails</title>
 </head>
 <body>
@@ -80,5 +83,9 @@
         </div>
     </form>
 </div>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
 </body>
 </html>

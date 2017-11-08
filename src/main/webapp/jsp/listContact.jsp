@@ -11,21 +11,19 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/Frontpage.css">
-    <link rel="stylesheet" href="/css/styles.css?newversion">
-    <script src="/js/listOfContacts.js"></script>
+    <link rel="stylesheet" href="/css/Frontpage.css?new">
+
+    <link rel="stylesheet" href="/css/styles.css?new">
+
+    <script src="/js/listOfContacts.js?newversion"></script>
+
     <title>Show All Users</title>
 </head>
 <body>
@@ -44,16 +42,17 @@
                 <div class="buttonsfixed">
                     <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                         <button type="submit" name="action" value="SEARCH_FORM" class="btn btn-info">
-                            <span class="glyphicon glyphicon-search"></span> Search
+                            Search
                         </button>
                         <button type="submit" name="action" value="CONTACT_FORM" class="btn btn-info">
-                            <span class="glyphicon glyphicon-plus"></span> New contact
+                            New contact
                         </button>
-                        <button type="submit" name="action" value="DELETE_CONTACT" class="btn btn-info">
-                            <span class="glyphicon glyphicon-trash"></span> Delete
+                        <button id="deleteButton" type="submit" name="action" value="DELETE_CONTACT"
+                                class="btn btn-info" disabled>
+                            Delete
                         </button>
                         <button type="submit" name="action" value="MAIL_FORM" class="btn btn-info">
-                            <span class="glyphicon glyphicon-envelope"></span> Email
+                            Email
                         </button>
                     </div>
                 </div>
@@ -62,33 +61,40 @@
         <br>
         <br>
 
-        <table class="table table-hover">
+        <table id="tableContact" class="table table-hover">
             <thead>
             <tr>
                 <td></td>
-                <td>First Name</td>
-                <td>Last name</td>
-                <td>Gender</td>
+                <td>Full Name</td>
+                <td>Bithday Date</td>
+                <td>Country</td>
+                <td>City</td>
+                <td>Street</td>
+                <td>House</td>
+                <td>Apartment</td>
                 <td>Workplace</td>
-                <td>E-mail</td>
-                <td></td>
             </tr>
             </thead>
+            <tbody>
             <c:forEach var="contact" items="${contacts}">
                 <tr>
-                    <td><input type="checkbox" name="chkbox" value="${contact.idcontact}"></td>
-                    <td>${contact.firstname}</td>
-                    <td>${contact.surname}</td>
-                    <td>${contact.gender}</td>
-                    <td>${contact.workplace}</td>
-                    <td>${contact.email}</td>
+                    <td><input type="checkbox" name="chkbox" value="${contact.key.idcontact}"
+                               onchange="deleteContacts()"></td>
                     <td>
-                        <a href="FrontController?action=CONTACT_FORM&idcontact=<c:out value="${contact.idcontact}"/>">
-                            <span class="glyphicon glyphicon-edit"/>
+                        <a href="FrontController?action=CONTACT_FORM&idcontact=<c:out value="${contact.key.idcontact}"/>">
+                            <span>${contact.key.firstname} ${contact.key.surname} ${contact.key.middlename}</span>
                         </a>
                     </td>
+                    <td>${contact.key.birthdate}</td>
+                    <td>${contact.value.country}</td>
+                    <td>${contact.value.city}</td>
+                    <td>${contact.value.street}</td>
+                    <td>${contact.value.house}</td>
+                    <td>${contact.value.apartment}</td>
+                    <td>${contact.key.workplace}</td>
                 </tr>
             </c:forEach>
+            </tbody>
         </table>
 
         <br>
@@ -133,5 +139,9 @@
         }
     }
 </script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
 </body>
 </html>

@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 public class ContactForm implements ActionCommand {
@@ -38,6 +39,9 @@ public class ContactForm implements ActionCommand {
             request.setAttribute("genders", genders);
             request.setAttribute("maritals", maritals);
 
+            LocalDate today = LocalDate.now();
+            request.setAttribute("today", today);
+
             if (request.getParameter("idcontact") != null) {
 
                 String idcontact = request.getParameter("idcontact");
@@ -57,6 +61,10 @@ public class ContactForm implements ActionCommand {
 
                 phones = phoneDAO.getAllPhones(Integer.parseInt(idcontact));
                 request.setAttribute("telephones", phones);
+
+                request.setAttribute("Page", request.getParameter("Page"));
+
+                request.setAttribute("Number", request.getParameter("Number"));
 
             }
         } catch (SQLException ex) {

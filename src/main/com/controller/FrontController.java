@@ -19,8 +19,12 @@ public class FrontController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /*@Override
-    public void init() throws ServletException {
-        super.init();
+    public void init() {
+        *//*try {
+            super.init();
+        } catch (ServletException e) {
+            LOGGER.error("Error initialization: "+e);
+        }*//*
         try {
             QuartzSchedule.quartzExecute();
             LOGGER.info("Application is started .");

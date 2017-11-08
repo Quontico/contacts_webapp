@@ -2,28 +2,34 @@ package util;
 
 import org.apache.log4j.Logger;
 import org.quartz.*;
+import org.quartz.ee.servlet.QuartzInitializerListener;
 import org.quartz.impl.StdSchedulerFactory;
 
-public class QuartzSchedule {
-    private static Logger LOGGER = Logger.getRootLogger();
+import javax.servlet.ServletContext;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.annotation.WebListener;
 
-    public static void quartzExecute() throws SchedulerException, InterruptedException {
+import static org.quartz.CronScheduleBuilder.dailyAtHourAndMinute;
+
+@WebListener
+public class QuartzSchedule extends QuartzInitializerListener {
+
+    Logger LOGGER = Logger.getRootLogger();
+
+    @Override
+    public void contextInitialized(ServletContextEvent sce) {
+        super.contextInitialized(sce);
+        ServletContext ctx = sce.getServletContext();
+        StdSchedulerFactory factory = (StdSchedulerFactory) ctx.getAttribute(QUARTZ_FACTORY_KEY);
         try {
-            JobDetail job = JobBuilder.newJob(QuartzJob.class)
-                    .withIdentity("QuartzJob").build();
-
-            Trigger trigger = TriggerBuilder.newTrigger()
-                    .withIdentity("CronTrigger")
-                    .withSchedule(CronScheduleBuilder.dailyAtHourAndMinute(22, 34))
-                    .build();
-
-            Scheduler scheduler = new StdSchedulerFactory().getScheduler();
+            Scheduler scheduler = factory.getScheduler();
+            JobDetail jobDetail = JobBuilder.newJob(QuartzJob.class).build();
+            Trigger trigger = TriggerBuilder.newTrigger().withIdentity("simple").withSchedule(dailyAtHourAndMinute(2, 51)).startNow().build();
+            scheduler.scheduleJob(jobDetail, trigger);
             scheduler.start();
-            scheduler.scheduleJob(job, trigger);
-
         } catch (Exception e) {
-            LOGGER.error("There is some problem with Quartz: " + e);
-            e.printStackTrace();
+            LOGGER.error("There was an error scheduling the job: ", e);
         }
     }
+
 }
