@@ -88,12 +88,12 @@
 
                     <label for="Citizenship" class="control-label">Citizenship:</label>
                     <input type="text" name="Citizenship" id="Citizenship" class="form-control"
-                           value="${contact.citizenship}" pattern="^[a-zA-Zа-яА-ЯЁё -]+$"
+                           value="${contact.citizenship}" pattern="^[a-zA-Zа-яА-ЯЁё '-]+$"
                            title="This field should contain latin and cyrillic symbols."/>
 
                     <label for="Workplace" class="control-label">Workplace:</label>
                     <input type="text" name="Workplace" id="Workplace" class="form-control"
-                           value="${contact.workplace}" pattern="^[a-zA-Zа-яА-ЯЁё0-9 -]+$"
+                           value="${contact.workplace}"
                            title="This field should contain latin, cyrillic symbols and some numbers."/>
 
                     <label for="Email" class="control-label">E-mail:</label>
@@ -114,7 +114,7 @@
 
                     <label for="City" class="control-label">City:</label>
                     <input type="text" name="City" id="City" class="form-control"
-                           value="${address.city}" pattern="[a-zA-Zа-яА-ЯЁё '-]+"
+                           value="${address.city}" pattern="[a-zA-Zа-яА-ЯЁё0-9 '-]+"
                            title="This field should contain latin and cyrillic symbols."/>
 
                     <label for="Street" class="control-label">Street:</label>
@@ -139,7 +139,7 @@
 
                     <div hidden>
                         <input class="upload-image" type="file" id="avatar" name="avatar"
-                               accept="image/jpeg, image/png">
+                               accept="image/jpeg, image/png, image/jpg">
                     </div>
                 </div>
             </div>
@@ -281,8 +281,7 @@
             <div>
                 <label><b>Number Type</b></label>
                 <input type="text" id="NumberType" class="form-control phonenumber" name="NumberType"
-                       value="${telephone.numberType}" pattern="[a-zA-Zа-яА-ЯЁё]+"
-                       title="This field should contain latin and cyrillic symbols.">
+                       value="${telephone.numberType}">
             </div>
 
             <div>
@@ -290,9 +289,8 @@
             </div>
 
             <div>
-                        <textarea name="phoneCommentary" id="phoneCommentary" class="textarea form-control" rows="4">
-                            ${telephone.commentary}
-                        </textarea>
+                <textarea name="phoneCommentary" id="phoneCommentary" class="textarea form-control"
+                          rows="4">${telephone.commentary}</textarea>
             </div>
             <br>
             <div class="save">
@@ -312,6 +310,7 @@
             <div id="AttachmentFile" style="display: none">
                 <div id="FileName">
                 </div>
+                <br>
                 <button type="button" onclick="deleteFile()" style="width:auto" class="btn btn-info">
                     Delete
                 </button>

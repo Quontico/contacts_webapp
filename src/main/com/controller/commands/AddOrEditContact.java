@@ -46,8 +46,11 @@ public class AddOrEditContact implements ActionCommand {
 
     private String attachmentAction;
 
+    private static String ALL_LITERAL_REGEX = "[a-zA-Zа-яА-ЯЁё0-9 '-]+";
     private static String ALL_STRING_REGEX = "[a-zA-Zа-яА-ЯЁё '-]+";
     private static String ALL_NUMBER_REGEX = "[0-9]+";
+    private static String EMAIL_REGEX = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
+    private static String SITE_REGEX = "^[a-z_-./\\]+$";
 
     private ResourceBundle bundle = ResourceBundle.getBundle("dropbox");
 
@@ -200,10 +203,12 @@ public class AddOrEditContact implements ActionCommand {
                 }
                 break;
             case "MiddleName":
-                if (ValidateInput.testFieldValue(ALL_STRING_REGEX, value)) {
-                    contact.setMiddlename(value);
-                } else {
-                    LOGGER.info("Wrong Middlename value during validation!!!");
+                if (value.length() > 0) {
+                    if (ValidateInput.testFieldValue(ALL_STRING_REGEX, value)) {
+                        contact.setMiddlename(value);
+                    } else {
+                        LOGGER.info("Wrong Middlename value during validation!!!");
+                    }
                 }
                 break;
             case "Birthdate":
@@ -218,73 +223,89 @@ public class AddOrEditContact implements ActionCommand {
                 contact.setMarital(value);
                 break;
             case "Citizenship":
-                if (ValidateInput.testFieldValue(ALL_STRING_REGEX, value)) {
-                    contact.setCitizenship(value);
-                } else {
-                    LOGGER.info("Wrong Citizenship value during validation!!!");
+                if (value.length() > 0) {
+                    if (ValidateInput.testFieldValue(ALL_STRING_REGEX, value)) {
+                        contact.setCitizenship(value);
+                    } else {
+                        LOGGER.info("Wrong Citizenship value during validation!!!");
+                    }
                 }
                 break;
             case "Workplace":
-                if (ValidateInput.testFieldValue(ALL_STRING_REGEX, value)) {
+                if (value.length() > 0) {
                     contact.setWorkplace(value);
-                } else {
-                    LOGGER.info("Wrong Workplace value during validation!!!");
                 }
                 break;
             case "Email":
-                if (ValidateInput.testFieldValue(ALL_STRING_REGEX, value)) {
-                    contact.setEmail(value);
-                } else {
-                    LOGGER.info("Wrong Email value during validation!!!");
+                if (value.length() > 0) {
+                    if (ValidateInput.testFieldValue(EMAIL_REGEX, value)) {
+                        contact.setEmail(value);
+                    } else {
+                        LOGGER.info("Wrong Email value during validation!!!");
+                    }
                 }
                 break;
             case "Website":
-                if (ValidateInput.testFieldValue(ALL_STRING_REGEX, value)) {
-                    contact.setWebsite(value);
-                } else {
-                    LOGGER.info("Wrong Website value during validation!!!");
+                if (value.length() > 0) {
+                    if (ValidateInput.testFieldValue(SITE_REGEX, value)) {
+                        contact.setWebsite(value);
+                    } else {
+                        LOGGER.info("Wrong Website value during validation!!!");
+                    }
                 }
                 break;
             case "Country":
-                if (ValidateInput.testFieldValue(ALL_STRING_REGEX, value)) {
-                    address.setCountry(value);
-                } else {
-                    LOGGER.info("Wrong Country value during validation!!!");
+                if (value.length() > 0) {
+                    if (ValidateInput.testFieldValue(ALL_STRING_REGEX, value)) {
+                        address.setCountry(value);
+                    } else {
+                        LOGGER.info("Wrong Country value during validation!!!");
+                    }
                 }
                 break;
             case "City":
-                if (ValidateInput.testFieldValue(ALL_STRING_REGEX, value)) {
-                    address.setCity(value);
-                } else {
-                    LOGGER.info("Wrong City value during validation!!!");
+                if (value.length() > 0) {
+                    if (ValidateInput.testFieldValue(ALL_LITERAL_REGEX, value)) {
+                        address.setCity(value);
+                    } else {
+                        LOGGER.info("Wrong City value during validation!!!");
+                    }
                 }
                 break;
             case "Street":
-                if (ValidateInput.testFieldValue(ALL_STRING_REGEX, value)) {
-                    address.setStreet(value);
-                } else {
-                    LOGGER.info("Wrong Street value during validation!!!");
+                if (value.length() > 0) {
+                    if (ValidateInput.testFieldValue(ALL_LITERAL_REGEX, value)) {
+                        address.setStreet(value);
+                    } else {
+                        LOGGER.info("Wrong Street value during validation!!!");
+                    }
                 }
                 break;
             case "House":
-                if (ValidateInput.testFieldValue(ALL_NUMBER_REGEX, value)) {
-                    address.setHouse(value);
-                } else {
-                    LOGGER.info("Wrong House value during validation!!!");
+                if (value.length() > 0) {
+                    if (ValidateInput.testFieldValue(ALL_NUMBER_REGEX, value)) {
+                        address.setHouse(value);
+                    } else {
+                        LOGGER.info("Wrong House value during validation!!!");
+                    }
                 }
                 break;
             case "Apartment":
-                if (ValidateInput.testFieldValue(ALL_NUMBER_REGEX, value)) {
-                    address.setApartment(value);
-                } else {
-                    LOGGER.info("Wrong Apartment value during validation!!!");
+                if (value.length() > 0) {
+                    if (ValidateInput.testFieldValue(ALL_NUMBER_REGEX, value)) {
+                        address.setApartment(value);
+                    } else {
+                        LOGGER.info("Wrong Apartment value during validation!!!");
+                    }
                 }
                 break;
             case "Postcode":
-                if (ValidateInput.testFieldValue(ALL_NUMBER_REGEX, value)) {
-                    address.setPostcode(value);
-                } else {
-                    LOGGER.info("Wrong Postcode value during validation!!!");
+                if (value.length() > 0) {
+                    if (ValidateInput.testFieldValue(ALL_NUMBER_REGEX, value)) {
+                        address.setPostcode(value);
+                    } else {
+                        LOGGER.info("Wrong Postcode value during validation!!!");
+                    }
                 }
                 if (contact.getIdcontact() == null) {
                     contact.setIdcontact(contactDAO.addContact(contact));
@@ -297,32 +318,34 @@ public class AddOrEditContact implements ActionCommand {
                 break;
             case "Dialing_Prefix":
                 telephone = new Telephone();
-                if (ValidateInput.testFieldValue(ALL_NUMBER_REGEX, value)) {
-                    telephone.setDialingPrefix(Integer.parseInt(value));
-                } else {
-                    LOGGER.info("Wrong Dialing_Prefix value during validation!!!");
+                if (value.length() > 0 && value.length() < 5) {
+                    if (ValidateInput.testFieldValue(ALL_NUMBER_REGEX, value)) {
+                        telephone.setDialingPrefix(Integer.parseInt(value));
+                    } else {
+                        LOGGER.info("Wrong Dialing_Prefix value during validation!!!");
+                    }
                 }
                 break;
             case "Provider_Code":
-                if (ValidateInput.testFieldValue(ALL_NUMBER_REGEX, value)) {
-                    telephone.setProviderCode(Integer.parseInt(value));
-                } else {
-                    LOGGER.info("Wrong Provider_Code value during validation!!!");
+                if (value.length() > 0 && value.length() < 5) {
+                    if (ValidateInput.testFieldValue(ALL_NUMBER_REGEX, value)) {
+                        telephone.setProviderCode(Integer.parseInt(value));
+                    } else {
+                        LOGGER.info("Wrong Provider_Code value during validation!!!");
+                    }
                 }
                 break;
             case "Phone_Number":
-                if (ValidateInput.testFieldValue(ALL_NUMBER_REGEX, value)) {
-                    telephone.setPhoneNumber(Integer.parseInt(value));
-                } else {
-                    LOGGER.info("Wrong Phone_Number value during validation!!!");
+                if (value.length() > 6) {
+                    if (ValidateInput.testFieldValue(ALL_NUMBER_REGEX, value)) {
+                        telephone.setPhoneNumber(Integer.parseInt(value));
+                    } else {
+                        LOGGER.info("Wrong Phone_Number value during validation!!!");
+                    }
                 }
                 break;
             case "Number_Type":
-                if (ValidateInput.testFieldValue(ALL_STRING_REGEX, value)) {
-                    telephone.setNumberType(value);
-                } else {
-                    LOGGER.info("Wrong Number_Type value during validation!!!");
-                }
+                telephone.setNumberType(value);
                 break;
             case "Phone_Commentary":
                 telephone.setCommentary(value);
