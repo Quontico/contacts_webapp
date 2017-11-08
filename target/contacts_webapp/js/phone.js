@@ -48,17 +48,17 @@ function savePhone() {
     document.getElementById("helpProviderCode").style.display = 'none';
     document.getElementById("helpPhoneNumber").style.display = 'none';
 
-    if ((/\D/.test(dialingPrefix))) {
+    if ((/\D/.test(dialingPrefix)) || dialingPrefix.length < 1 || dialingPrefix.length > 4) {
         validPhone = false;
         document.getElementById("DialingPrefix").style.borderColor = 'red';
         document.getElementById("helpDialingPrefix").style.display = 'block';
     }
-    if ((/\D/.test(providerCode))) {
+    if ((/\D/.test(providerCode)) || providerCode.length < 1 || providerCode.length > 4) {
         validPhone = false;
         document.getElementById("ProviderCode").style.borderColor = 'red';
         document.getElementById("helpProviderCode").style.display = 'block';
     }
-    if ((/\D/.test(phoneNumber))) {
+    if ((/\D/.test(phoneNumber)) || phoneNumber.length < 7) {
         validPhone = false;
         document.getElementById("PhoneNumber").style.borderColor = 'red';
         document.getElementById("helpPhoneNumber").style.display = 'block';

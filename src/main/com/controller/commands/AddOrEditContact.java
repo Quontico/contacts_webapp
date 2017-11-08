@@ -50,7 +50,6 @@ public class AddOrEditContact implements ActionCommand {
     private static String ALL_STRING_REGEX = "[a-zA-Zа-яА-ЯЁё '-]+";
     private static String ALL_NUMBER_REGEX = "[0-9]+";
     private static String EMAIL_REGEX = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
-    private static String SITE_REGEX = "^[a-z_-./\\]+$";
 
     private ResourceBundle bundle = ResourceBundle.getBundle("dropbox");
 
@@ -247,7 +246,7 @@ public class AddOrEditContact implements ActionCommand {
                 break;
             case "Website":
                 if (value.length() > 0) {
-                    if (ValidateInput.testFieldValue(SITE_REGEX, value)) {
+                    if (ValidateInput.testFieldValue(ALL_STRING_REGEX, value)) {
                         contact.setWebsite(value);
                     } else {
                         LOGGER.info("Wrong Website value during validation!!!");

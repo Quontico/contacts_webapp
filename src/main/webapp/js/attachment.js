@@ -152,7 +152,6 @@ function saveAttachment() {
     }
 
     inputAC.value = document.getElementById('attachmentCommentary').value;
-    //inputAP.value = file.value;
     inputAFN.value = file.value.substring(file.value.lastIndexOf('\\') + 1);
 
     td0.innerHTML = '';

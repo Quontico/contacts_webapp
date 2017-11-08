@@ -144,7 +144,7 @@ function saveAttachment() {
 
         if (document.getElementById("file-container").style.display === 'none') {
             inputAC.value = document.getElementById('attachmentCommentary').value;
-            td3.innerHTML = new Date();
+            td3.innerHTML = formatDate(new Date());
             td4.innerHTML = inputAC.value;
             closeAtchForm();
             return;
@@ -152,7 +152,6 @@ function saveAttachment() {
     }
 
     inputAC.value = document.getElementById('attachmentCommentary').value;
-    //inputAP.value = file.value;
     inputAFN.value = file.value.substring(file.value.lastIndexOf('\\') + 1);
 
     td0.innerHTML = '';
@@ -163,11 +162,20 @@ function saveAttachment() {
     document.getElementById('file-container').innerHTML = '<input type="file" id="File" name="File">';
 
     td2.innerHTML = inputAFN.value;
-    td3.innerHTML = new Date();
+    td3.innerHTML = formatDate(new Date());
     td4.innerHTML = inputAC.value;
     td5.innerHTML = '<button type="button" onclick="editAttachment(this)" style="width:auto" class="btn btn-info">Edit</button>'
 
     closeAtchForm();
+}
+
+function formatDate(date) {
+
+    var day = date.getDate();
+    var month = date.getMonth();
+    var year = date.getFullYear();
+
+    return year + '-' + month + '-' + day;
 }
 
 function closeAtchForm() {

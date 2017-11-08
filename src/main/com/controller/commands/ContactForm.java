@@ -62,10 +62,6 @@ public class ContactForm implements ActionCommand {
                 phones = phoneDAO.getAllPhones(Integer.parseInt(idcontact));
                 request.setAttribute("telephones", phones);
 
-                request.setAttribute("Page", request.getParameter("Page"));
-
-                request.setAttribute("Number", request.getParameter("Number"));
-
             }
         } catch (SQLException ex) {
             LOGGER.error("SQLException occured" + ex);
