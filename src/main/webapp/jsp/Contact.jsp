@@ -230,7 +230,7 @@
                     <td>${attachment.dateUpload}</td>
                     <td>${attachment.attachmentComment}</td>
                     <td>
-                        <button type="button" onclick="editAttachment(this)" style="width:auto" class="btn btn-info">
+                        <button type="button" onclick="editAttachment(this)" class="btn btn-info">
                             Edit
                         </button>
                     </td>
@@ -274,7 +274,7 @@
                 <input type="text" id="PhoneNumber" class="form-control numbertype" name="PhoneNumber"
                        value="${telephone.phoneNumber}" pattern="[0-9]{7,}"
                        title="This field should contain only numbers.">
-                <span id="helpPhoneNumber" class="help-block" style="color: red; display: none">This field should contain at least 7 numbers.</span>
+                <span id="helpPhoneNumber" class="help-block" style="color: red; display: none">This field should contain 7-15 numbers.</span>
             </div>
             <div>
                 <label><b>Number Type</b></label>
@@ -287,8 +287,8 @@
             </div>
 
             <div>
-                <textarea name="phoneCommentary" id="phoneCommentary" class="textarea form-control"
-                          rows="4">${telephone.commentary}</textarea>
+                    <textarea name="phoneCommentary" id="phoneCommentary" class="textarea form-control"
+                              rows="4">${telephone.commentary}</textarea>
             </div>
             <br>
             <div class="save">
@@ -319,8 +319,8 @@
             </div>
 
             <div>
-                <textarea name="attachmentCommentary" id="attachmentCommentary" class="textarea form-control"
-                          rows="6">${attachment.commentary}</textarea>
+                    <textarea name="attachmentCommentary" id="attachmentCommentary" class="textarea form-control"
+                              rows="6">${attachment.commentary}</textarea>
             </div>
             <br>
             <div class="clearfix">

@@ -58,7 +58,7 @@ function savePhone() {
         document.getElementById("ProviderCode").style.borderColor = 'red';
         document.getElementById("helpProviderCode").style.display = 'block';
     }
-    if ((/\D/.test(phoneNumber)) || phoneNumber.length < 7) {
+    if ((/\D/.test(phoneNumber)) || phoneNumber.length < 7 || phoneNumber.length > 10) {
         validPhone = false;
         document.getElementById("PhoneNumber").style.borderColor = 'red';
         document.getElementById("helpPhoneNumber").style.display = 'block';

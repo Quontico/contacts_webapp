@@ -118,13 +118,13 @@ DROP TABLE IF EXISTS `telephone`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `telephone` (
-  `idtelephone` int(11) NOT NULL AUTO_INCREMENT,
-  `DialingPrefix` int(11) DEFAULT NULL,
-  `ProviderCode` int(11) DEFAULT NULL,
-  `PhoneNumber` int(11) DEFAULT NULL,
-  `commentary` text,
+  `idtelephone`        int(11) NOT NULL AUTO_INCREMENT,
+  `DialingPrefix`      int(11)          DEFAULT NULL,
+  `ProviderCode`       int(11)          DEFAULT NULL,
+  `PhoneNumber`        INT(50)          DEFAULT NULL,
+  `commentary`         text,
   `contacts_idcontact` int(11) NOT NULL,
-  `NumberType` varchar(15) DEFAULT NULL,
+  `NumberType`         VARCHAR(255)     DEFAULT NULL,
   PRIMARY KEY (`idtelephone`),
   KEY `fk_telephones_contacts_idx` (`contacts_idcontact`),
   CONSTRAINT `fk_telephones_contacts` FOREIGN KEY (`contacts_idcontact`) REFERENCES `contact` (`idcontact`) ON DELETE NO ACTION ON UPDATE NO ACTION

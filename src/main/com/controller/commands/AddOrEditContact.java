@@ -339,7 +339,7 @@ public class AddOrEditContact implements ActionCommand {
                 }
                 break;
             case "Phone_Number":
-                if (value.length() > 6) {
+                if (value.length() > 6 && value.length() < 11) {
                     if (ValidateInput.testFieldValue(ALL_NUMBER_REGEX, value)) {
                         telephone.setPhoneNumber(Integer.parseInt(value));
                     } else {

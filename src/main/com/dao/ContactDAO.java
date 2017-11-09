@@ -114,6 +114,7 @@ public class ContactDAO {
 
     public Map<Contact, Address> getAllContacts(int firstrow, int lastrow) {
         LinkedHashMap<Contact, Address> contacts = new LinkedHashMap<>();
+        //LinkedHashMap<Contact, Address> reverse_contacts = new LinkedHashMap<>();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT SQL_CALC_FOUND_ROWS * FROM contact JOIN address " +
                     "ON contact.idcontact = address.contacts_idcontact LIMIT ?,?");
@@ -141,6 +142,13 @@ public class ContactDAO {
                 address.setApartment(rs.getString("Apartment"));
                 contacts.put(contact, address);
             }
+            /*List<Contact> alKeys = new ArrayList<>(contacts.keySet());
+
+            Collections.reverse(alKeys);
+
+            for(Contact strKey : alKeys){
+                reverse_contacts.put(strKey, contacts.get(strKey));
+            }*/
         } catch (SQLException e) {
             LOGGER.error("Some SQLException in ContactDAO: " + e);
         }
